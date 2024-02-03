@@ -22,12 +22,26 @@ const App = () => {
     setFoods(updatedFoods);
   };
 
+  const updateFoodById = (id, newTitle) => {
+    const updatedFoods = foods.map((food) => {
+      if (food.id === id) {
+        return { ...food, title: newTitle };
+      }
+      return food;
+    });
+    setFoods(updatedFoods);
+  };
+
   return (
     <div className="app">
       {/* onCreate ve onDelete kendi isimlendirdiğimiz bir parametre, murat da yazabilirdik. */}
 
       <FoodCreate onCreate={createFood} foods={foods} />
-      <FoodList foods={foods} onDelete={deleteFoodById} />
+      <FoodList
+        foods={foods}
+        onDelete={deleteFoodById}
+        onUpdate={updateFoodById}
+      />
     </div>
   );
 };
