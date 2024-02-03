@@ -12,8 +12,12 @@ const FoodShow = ({ food, onDelete, onUpdate }) => {
     setShowEdit((pre) => !pre);
   };
 
+  const handleSave = () => {
+    setShowEdit(false);
+  };
+
   let content = showEdit ? (
-    <FoodEdit food={food} showEdit={setShowEdit} onUpdate={onUpdate} />
+    <FoodEdit food={food} showEdit={handleSave} onUpdate={onUpdate} />
   ) : (
     <h3>{food.title}</h3>
   );

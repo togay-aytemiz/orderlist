@@ -9,9 +9,9 @@ const FoodEdit = ({ food, showEdit, onUpdate }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    showEdit((pre) => !pre);
-    console.log("Yeni sipariş", title);
+    // console.log("Yeni sipariş", title);
     onUpdate(food.id, title);
+    showEdit();
   };
 
   return (
