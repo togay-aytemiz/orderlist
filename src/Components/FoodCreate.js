@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FoodCreate = ({ onCreate }) => {
+const FoodCreate = ({ onCreate, foods }) => {
   // Input'a yazılan bilgilerin state içerisine tutulmasını sağlar
   const [title, setTitle] = useState("");
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ const FoodCreate = ({ onCreate }) => {
   };
   return (
     <div className="food-create">
-      <h3>Sipariş Listesi</h3>
+      <h3>Sipariş Listesi {foods.length > 0 && `(${foods.length})`}</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
