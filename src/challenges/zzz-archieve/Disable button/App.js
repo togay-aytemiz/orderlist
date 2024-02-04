@@ -1,4 +1,5 @@
-import './styles.css'
+import { useState } from "react";
+import "./styles.css";
 
 /**
  Giriş alanında karakter olmadığında Submit butonunu devre dışı bırakın.
@@ -8,13 +9,17 @@ import './styles.css'
 **/
 
 export default function App() {
-  const [] = useState('')
+  const [value, setValue] = useState("");
 
   return (
     <>
       <h3>Disable Button Challenge</h3>
-      <input type='text' />
-      <button>Submit</button>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      {value.length > 0 && <button>Submit</button>}
     </>
-  )
+  );
 }
