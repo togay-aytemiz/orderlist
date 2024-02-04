@@ -1,0 +1,2 @@
+<!-- Kullanıcıya bir resim listesi görüntüleyecek bileşen üzerinde çalışıyorsunuz. images adında bir prop alacak ve bu prop bir nesne dizisi olacaktır. Her bir resim nesnesinin bir (id), (src) ve isim (name) özelliği bulunur.
+ImageList.js dosyasını güncelleyin. Bir resme tıklanıldığında o resmin isminin h1 elementinde görüntülendiğinden emin olun. Zaten oluşturulmuş olan handleClick fonksiyonunu ve selectedName state’ini kullanın. -->

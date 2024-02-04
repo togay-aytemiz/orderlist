@@ -1,0 +1,1 @@
+<!-- `handleAddItem` fonksiyonu, kullanıcı yeni bir madde gönderdiğinde çağrılmalıdır. Ne yazık ki, çalışmıyor! Bir madde girdiğimizde ve formu gönderdiğimizde, bu madde alışveriş listesine eklenmiyor. -->
