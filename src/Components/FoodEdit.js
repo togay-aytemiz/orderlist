@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FoodEdit = ({ food, showEdit, onUpdate }) => {
+const FoodEdit = ({ food, showEdit }) => {
   const [title, setTitle] = useState(food.title);
 
   const handleChange = (e) => {
@@ -10,8 +10,8 @@ const FoodEdit = ({ food, showEdit, onUpdate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log("Yeni sipariş", title);
-    onUpdate(food.id, title);
-    showEdit();
+    // onUpdate(food.id, title);
+    showEdit(food.id, title);
   };
 
   return (

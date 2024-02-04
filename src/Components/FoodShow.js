@@ -12,18 +12,25 @@ const FoodShow = ({ food, onDelete, onUpdate }) => {
     setShowEdit((pre) => !pre);
   };
 
-  const handleSave = () => {
+  const handleSubmit = (id, newTitle) => {
     setShowEdit(false);
+    onUpdate(id, newTitle);
   };
 
   let content = showEdit ? (
-    <FoodEdit food={food} showEdit={handleSave} onUpdate={onUpdate} />
+    <FoodEdit food={food} showEdit={handleSubmit} />
   ) : (
     <h3>{food.title}</h3>
   );
 
   return (
     <div className="food-show">
+      <div
+        className="food-background"
+        style={{
+          backgroundImage: `url(https://picsum.photos/seed/${food.id}/300/)`,
+        }}
+      ></div>
       <div className="food-content">{content}</div>
 
       <div className="actions">
