@@ -2,12 +2,12 @@
 
 import App from "@/Components/App";
 
-import Hook from "@/hooks/UseStateCounter";
+import Hook from "@/hooks/UseEffectBasic";
 
 const HomePage = () => {
   return (
     <div>
-      <App />
+      <Hook />
     </div>
   );
 };
