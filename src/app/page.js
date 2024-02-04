@@ -2,7 +2,7 @@
 
 import App from "@/Components/App";
 
-import Hook from "@/hooks/UseEffectBasic";
+import Hook from "@/hooks/UseEffectFetchData";
 
 const HomePage = () => {
   return (
