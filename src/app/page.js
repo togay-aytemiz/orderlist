@@ -1,6 +1,6 @@
 "use client";
 
-import App from "@/Components/App";
+import App from "@/hooks/UseEffectFetchData";
 
 // import Hook from "@/challenges/Update Parent State/App";
 
