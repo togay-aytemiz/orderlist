@@ -1,6 +1,6 @@
 "use client";
 
-import App from "@/hooks/ShortCircuit";
+import App from "@/hooks/ShowHide";
 
 // import Hook from "@/challenges/Update Parent State/App";
 
