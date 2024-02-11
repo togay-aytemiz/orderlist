@@ -1,8 +1,6 @@
 "use client";
 
-// import App from "@/hooks/ControlledInput";
-
-import Hook from "@/challenges/Modifying Elements 15.4/App";
+import Hook from "@/hooks/ControlledInput";
 
 const HomePage = () => {
   return (
