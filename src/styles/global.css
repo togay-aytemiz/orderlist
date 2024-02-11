@@ -52,16 +52,22 @@ textarea {
   margin: 0;
 }
 
-/* input {
+input {
   padding: 0.5rem 0.5rem;
   background-color: #f2f2f2;
   border: none;
   border-radius: 0.5rem;
   font-weight: bold;
   width: 200px;
+  margin-bottom: 0.5rem;
 }
 
-.orderBtn {
+body {
+  margin: 1rem;
+}
+
+/*
+button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5rem;

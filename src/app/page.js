@@ -1,6 +1,6 @@
 "use client";
 
-import Hook from "@/hooks/ControlledInput";
+import Hook from "@/hooks/MultipleInputs";
 
 const HomePage = () => {
   return (
