@@ -8,34 +8,9 @@ const MultipleInputs = () => {
   const [person, setPerson] = useState({ name: "", email: "", age: "" });
   const [people, setPeople] = useState([]);
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     console.log("name", name);
-  //     console.log("email", email);
-  //     if (name && email) {
-  //       console.log("formu gönder");
-  //       const person = {
-  //         id: crypto.randomUUID(),
-  //         name: name,
-  //         email: email,
-  //         age: age,
-  //       };
-  //       const newArr = [...people, person];
-  //       setPeople(newArr);
-  //       console.log(newArr);
-  //       setName("");
-  //       setEmail("");
-  //       setAge("");
-  //     } else {
-  //       console.log("boş değerler");
-  //     }
-  //   };
-
   const handleChange = (e) => {
     const inputName = e.target.name;
-    // console.log(name);
     const value = e.target.value;
-    // console.log(value);
     setPerson({ ...person, [inputName]: value });
   };
 
@@ -48,8 +23,6 @@ const MultipleInputs = () => {
       setPerson({ name: "", email: "", age: "" });
     }
   };
-
-  //   console.log(people);
 
   return (
     <>
@@ -80,7 +53,7 @@ const MultipleInputs = () => {
           </div>
 
           <div>
-            {/* <label htmlFor="email">Email:</label> */}
+            {/* <label htmlFor="age">Age:</label> */}
             <input
               type="number"
               id="age"
