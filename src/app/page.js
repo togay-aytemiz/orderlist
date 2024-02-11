@@ -1,6 +1,6 @@
 "use client";
 
-import Hook from "@/hooks/UseRefBasic";
+import Hook from "@/hooks/UseReducer";
 
 const HomePage = () => {
   return (
