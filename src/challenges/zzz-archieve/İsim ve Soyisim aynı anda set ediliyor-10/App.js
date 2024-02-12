@@ -4,9 +4,7 @@ import "./styles.css";
 export default function App() {
   const [name, setName] = useState();
 
-  function onChange(e) {
-    setName(e.target.value);
-  }
+  const [surname, setSurname] = useState();
 
   return (
     <div className="App">
@@ -14,13 +12,13 @@ export default function App() {
       <div>
         <label>
           İsim
-          <input onChange={onChange} value={name} />
+          <input onChange={(e) => setName(e.target.value)} value={name} />
         </label>
       </div>
       <div>
         <label>
           Soyisim
-          <input onChange={onChange} value={name} />
+          <input onChange={(e) => setSurname(e.target.value)} value={surname} />
         </label>
       </div>
       <div />

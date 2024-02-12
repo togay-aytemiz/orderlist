@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef } from 'react'
-import './styles.css'
+import { useState, useEffect, useRef } from "react";
+import "./styles.css";
+
 export default function App() {
-  const [height, setHeight] = useState(0)
-  const ref = useRef(null)
+  const [height, setHeight] = useState(0);
+  const ref = useRef(null);
 
   useEffect(() => {
-    setHeight(ref.current.height)
-  })
+    setHeight(ref.current.height);
+    console.log(ref.current.height);
+  });
 
   return (
     <div ref={ref}>
@@ -14,5 +16,5 @@ export default function App() {
       <h2>Hello world </h2>
       Height: {height}px
     </div>
-  )
+  );
 }

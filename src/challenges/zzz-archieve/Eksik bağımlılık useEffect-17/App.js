@@ -3,8 +3,10 @@ import "./styles.css";
 
 export default function App() {
   const [arr, setArr] = useState([]);
-  // useEffect(()=>{
-  //   setArr([1])
-  // })
+
+  useEffect(() => {
+    setArr(arr);
+  }, [arr]);
+
   return <div className="App"></div>;
 }

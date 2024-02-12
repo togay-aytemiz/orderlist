@@ -1,11 +1,14 @@
 .App {
   font-family: sans-serif;
   border: 2px solid black;
-  width: 500px;
+  max-width: 500px;
   margin: auto;
   text-align: center;
 }
 
 @media (max-width: 400px) {
-  background-color: blue;
+  .App {
+    background-color: blue;
+    color: white
+  }
 }
