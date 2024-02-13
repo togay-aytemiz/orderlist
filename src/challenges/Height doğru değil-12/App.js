@@ -6,8 +6,8 @@ export default function App() {
   const ref = useRef(null);
 
   useEffect(() => {
-    setHeight(ref.current.height);
-    console.log(ref.current.height);
+    // console.log(ref.current.offsetHeight);
+    setHeight(ref.current.offsetHeight);
   });
 
   return (

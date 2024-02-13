@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useState } from "react";
 import "./styles.css";
 
@@ -26,6 +27,7 @@ function App() {
       </div>
       <div className="books">
         {books.map((book, index) => {
+          let formattedDate = moment(book.released).format("ddd MMM Do YYYY");
           return (
             <div className="book">
               <h3>{`Book ${index + 1}`}</h3>
@@ -34,7 +36,7 @@ function App() {
                 <p>👨: {book.authors}</p>
                 <p>📖: {book.numberOfPages}</p>
                 <p>🏘️: {book.country}</p>
-                <p>⏰: {book.released}</p>
+                <p>⏰: {formattedDate}</p>
               </div>
             </div>
           );
