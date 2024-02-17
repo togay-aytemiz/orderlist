@@ -1,6 +1,6 @@
 "use client";
 
-import Hook from "@/challenges/Height doğru değil-12/App";
+import Hook from "@/hooks/UseReducer";
 
 const HomePage = () => {
   return (

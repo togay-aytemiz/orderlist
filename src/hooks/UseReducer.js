@@ -1,27 +1,6 @@
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect, useRef } from "react";
+import { reducer } from "./Reducer";
 import Modal from "./Modal";
-
-const data = [
-  { id: 1, name: "Namık" },
-  { id: 2, name: "Suzan" },
-  { id: 3, name: "Eda" },
-  { id: 4, name: "Hakan" },
-];
-
-const reducer = (state, action) => {
-  console.log(state, action);
-  //   dispatch ile gönderilen nesneye bakar
-  if (action.type === "TESTING") {
-    // defaultState bir nesne ve onların eski özelliklerini koruyacağız
-    return {
-      ...state,
-      people: data,
-      isModalOpen: true,
-      modalContent: "Person succesfully added...",
-    };
-  }
-  return state;
-};
 
 // Default state'ler burada tanımlanır.
 const defaultState = {
@@ -35,20 +14,35 @@ const UseReducer = () => {
   //   const [people, setPeople] = useState(data);
   const [state, dispatch] = useReducer(reducer, defaultState);
 
-  const [showModal, setShowModal] = useState(false);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
+      const newItem = { id: crypto.randomUUID(), name: name }; //Sadece name de yazabilirdik, 2 kere name yazmak yerine.
+
       // dispatch hep nesne bekler ve type adında bir özelliği olmalı
-      dispatch({ type: "TESTING" });
+      dispatch({ type: "ADD_ITEM", payload: newItem });
+      setName("");
     } else {
+      dispatch({ type: "NO_VALUE" });
     }
+  };
+
+  const refContainer = useRef(null);
+
+  useEffect(() => {
+    // console.log(refContainer.current);
+    refContainer.current.focus();
+  });
+
+  const closeModal = () => {
+    dispatch({ type: "CLOSE_MODAL" });
   };
 
   return (
     <>
-      {state.isModalOpen && <Modal modalContent={state.modalContent} />}
+      {state.isModalOpen && (
+        <Modal modalContent={state.modalContent} closeModal={closeModal} />
+      )}
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -56,6 +50,7 @@ const UseReducer = () => {
             value={name}
             placeholder="Please enter your name"
             onChange={(e) => setName(e.target.value)}
+            ref={refContainer}
           />
         </div>
         <button>Add...</button>
@@ -65,6 +60,11 @@ const UseReducer = () => {
         return (
           <div key={id}>
             <h4>{name}</h4>
+            <button
+              onClick={() => dispatch({ type: "REMOVE_ITEM", payload: id })}
+            >
+              Remove
+            </button>
           </div>
         );
       })}
