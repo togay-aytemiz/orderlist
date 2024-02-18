@@ -1,16 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FoodCreate from "./FoodCreate";
 import FoodList from "./FoodList";
+import axios from "axios";
 
 const App = () => {
   const [foods, setFoods] = useState([]);
 
-  const createFood = (title) => {
-    // console.log(title, "sipariş eklendi");
+  const fetchFoods = async () => {
+    const response = await axios.get("http://localhost:3001/foods");
+    console.log(response.data);
+    setFoods(response.data);
+  };
 
-    // const updatedFoods = [...foods, {id:123, title:title}] - aşağıdaki ile aynı
-    const updatedFoods = [...foods, { id: crypto.randomUUID(), title }];
-    console.log(updatedFoods);
+  useEffect(() => {
+    fetchFoods();
+  }, []);
+
+  const createFood = async (title) => {
+    // // console.log(title, "sipariş eklendi");
+
+    // // const updatedFoods = [...foods, {id:123, title:title}] - aşağıdaki ile aynı
+    // const updatedFoods = [...foods, { id: crypto.randomUUID(), title }];
+    // console.log(updatedFoods);
+    // setFoods(updatedFoods);
+
+    const response = await axios.post("http://localhost:3001/foods", { title });
+    console.log(response.data);
+
+    const updatedFoods = [...foods, response.data];
     setFoods(updatedFoods);
   };
 
