@@ -17,7 +17,7 @@ const PropDrill = () => {
 
   return (
     <section>
-      <h3>PropDrill</h3>
+      <h3 style={{ marginBottom: "1rem", fontWeight: "bold" }}>PropDrill</h3>
       <List people={people} removePerson={removePerson} />
     </section>
   );

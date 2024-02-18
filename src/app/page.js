@@ -1,12 +1,12 @@
 "use client";
 
-import Hook from "@/hooks/PropDrill";
+import Hook from "@/hooks/Context";
 import App from "@/Components/App";
 
 const HomePage = () => {
   return (
     <div>
-      <App />
+      <Hook />
     </div>
   );
 };
