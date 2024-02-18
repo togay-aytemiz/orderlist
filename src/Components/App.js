@@ -32,17 +32,23 @@ const App = () => {
   };
 
   // tıklanan id'yi ana array'den çıkartmak için kullanılır
-  const deleteFoodById = (id) => {
+  const deleteFoodById = async (id) => {
+    await axios.delete(`http://localhost:3001/foods/${id}`);
+
     const updatedFoods = foods.filter((food) => {
       return food.id !== id;
     });
     setFoods(updatedFoods);
   };
 
-  const updateFoodById = (id, newTitle) => {
+  const updateFoodById = async (id, newTitle) => {
+    const response = await axios.put(`http://localhost:3001/foods/${id}`, {
+      title: newTitle,
+    });
+
     const updatedFoods = foods.map((food) => {
       if (food.id === id) {
-        return { ...food, title: newTitle };
+        return { ...food, ...response.data };
       }
       return food;
     });
