@@ -1,6 +1,9 @@
-import { useState } from "react";
+import FoodContext from "@/context/foods";
+import { useState, useContext } from "react";
 
 const FoodEdit = ({ food, showEdit }) => {
+  const { updateFoodById } = useContext(FoodContext);
+
   const [title, setTitle] = useState(food.title);
 
   const handleChange = (e) => {
@@ -9,9 +12,9 @@ const FoodEdit = ({ food, showEdit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("Yeni sipariş", title);
-    // onUpdate(food.id, title);
-    showEdit(food.id, title);
+
+    showEdit();
+    updateFoodById(food.id, title);
   };
 
   return (

@@ -1,20 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import FoodEdit from "./FoodEdit";
+import FoodContext from "@/context/foods";
 
-const FoodShow = ({ food, onDelete, onUpdate }) => {
+const FoodShow = ({ food }) => {
+  const { deleteFoodById } = useContext(FoodContext);
+
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteClick = () => {
-    onDelete(food.id);
+    deleteFoodById(food.id);
   };
 
   const handleEditClick = () => {
     setShowEdit((pre) => !pre);
   };
 
-  const handleSubmit = (id, newTitle) => {
+  const handleSubmit = () => {
     setShowEdit(false);
-    onUpdate(id, newTitle);
   };
 
   let content = showEdit ? (

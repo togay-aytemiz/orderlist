@@ -1,6 +1,9 @@
-import { useState } from "react";
+import FoodContext from "@/context/foods";
+import { useState, useContext } from "react";
 
-const FoodCreate = ({ onCreate, foods }) => {
+const FoodCreate = () => {
+  const { foods, createFood } = useContext(FoodContext);
+
   // Input'a yazılan bilgilerin state içerisine tutulmasını sağlar
   const [title, setTitle] = useState("");
   const handleChange = (e) => {
@@ -10,7 +13,7 @@ const FoodCreate = ({ onCreate, foods }) => {
   // Buttona basıldığında ne olacağı
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(title);
+    createFood(title);
     setTitle("");
   };
   return (

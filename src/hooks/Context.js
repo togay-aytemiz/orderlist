@@ -19,17 +19,21 @@ const Context = () => {
   };
 
   return (
-    <PersonContext.Provider value={{ removePerson }}>
-      <h3 style={{ marginBottom: "1rem", fontWeight: "bold" }}>Context</h3>
-      <List people={people} />
+    <PersonContext.Provider value={{ removePerson, people }}>
+      <h3 style={{ marginBottom: "1rem", fontWeight: "bold" }}>
+        Context / useContext
+      </h3>
+      <List />
     </PersonContext.Provider>
   );
 };
 
-const List = ({ people }) => {
+const List = () => {
+  const mainData = useContext(PersonContext);
+  console.log(mainData);
   return (
     <>
-      {people.map((person) => {
+      {mainData.people.map((person) => {
         return <SinglePerson key={person.id} {...person} />;
       })}
     </>
@@ -38,7 +42,7 @@ const List = ({ people }) => {
 
 const SinglePerson = ({ id, name }) => {
   const { removePerson } = useContext(PersonContext);
-  console.log(removePerson);
+  // console.log(removePerson);
   return (
     <div
       style={{
